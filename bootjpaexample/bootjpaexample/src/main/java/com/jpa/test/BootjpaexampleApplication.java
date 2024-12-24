@@ -53,7 +53,7 @@ public class BootjpaexampleApplication {
 //				Optional<User> optional =  userRepository.findById(2);
 //		User user = optional.get();
 
-		Iterable<User> itr = userRepository.findAll();
+//		Iterable<User> itr = userRepository.findAll();
 //		Iterator<User> iterator = itr.iterator();
 //		while(iterator.hasNext()){
 //			User user = iterator.next();
@@ -61,21 +61,30 @@ public class BootjpaexampleApplication {
 //		}
 
 		//enhanced
-		for (User user : itr) {
-			System.out.println(user);
-		}
-
-		System.out.println("Done with creation");
+//		for (User user : itr) {
+//			System.out.println(user);
+//		}
+//
+//		System.out.println("Done with creation");
 
 
 		//delete user
 
-		userRepository.deleteById(5);
-		System.out.println("deleted");
-		Iterable<User> itr1 = userRepository.findAll();
-		for (User user : itr1) {
+//		userRepository.deleteById(5);
+//		System.out.println("deleted");
+//		Iterable<User> itr1 = userRepository.findAll();
+//		for (User user : itr1) {
+//			System.out.println(user);
+//		}
+
+//		List<User> list = userRepository.findByName("Sanidhya");
+//		List<User> list = userRepository.findByNameAndCity("Gopi","Indore");
+		List<User> list = userRepository.findByNameContaining("an");
+
+		for(User user : list){
 			System.out.println(user);
 		}
+
 	}
 
 }
