@@ -25,4 +25,22 @@ public class BookController {
 public Book getBook(@PathVariable("id") int id){
     return bookService.getBookById(id);
 }
+
+@PostMapping("/books/add")
+//request body book ke object ko json me parse kar dega
+    public Book addBook(@RequestBody Book book){
+    return bookService.addBook(book);
+}
+
+@DeleteMapping("/books/delete/{id}")
+    public void deleteBook(@PathVariable("id") int id){
+   bookService.deleteBook(id);
+}
+
+@PutMapping("/books/edit/{id}")
+    public Book updateBook(@RequestBody Book book, @PathVariable("id") int id)
+    {
+      bookService.updateBook(book,id);
+    return book;
+    }
 }
