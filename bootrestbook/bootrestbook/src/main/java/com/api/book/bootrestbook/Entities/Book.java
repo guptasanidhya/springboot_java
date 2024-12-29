@@ -13,7 +13,10 @@ public class Book {
 
 
     private String title;
-    private String author;
+
+    //cascade matlab jab book ka object banao post me to author ka bana ke bhi pass kardo to dono create ho jaege
+    @OneToOne(cascade = CascadeType.ALL)
+    private Author author;
 
 
     public int getId() {
@@ -32,18 +35,18 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
     public Book() {
     }
 
-    public Book(int id, String title, String author) {
+    public Book(int id, String title, Author author) {
         this.id = id;
         this.title = title;
         this.author = author;
