@@ -1,6 +1,20 @@
 package com.api.book.bootrestbook.Entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="books")
 public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="book_id")
+    private int id;
+
+
+    private String title;
+    private String author;
+
 
     public int getId() {
         return id;
@@ -35,7 +49,5 @@ public class Book {
         this.author = author;
     }
 
-    private int id;
-    private String title;
-    private String author;
+
 }
