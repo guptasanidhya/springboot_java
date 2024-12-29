@@ -1,6 +1,8 @@
 package com.api.book.bootrestbook.Entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import org.springframework.jmx.export.annotation.ManagedResource;
 
 @Entity
 @Table(name="books")
@@ -16,6 +18,7 @@ public class Book {
 
     //cascade matlab jab book ka object banao post me to author ka bana ke bhi pass kardo to dono create ho jaege
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Author author;
 
 
